@@ -1,5 +1,5 @@
 // Set Up Margins
-var svgWidth = 960;
+var svgWidth = 800;
 var svgHeight = 500;
 
 var margin = {
@@ -151,17 +151,16 @@ var circlesGroup = chartGroup.selectAll("circle")
 .attr("opacity", ".8");
 
 // append state names
-var abbrGroup = chartGroup.selectAll("text")
+var abbrGroup = chartGroup.selectAll()
 .data(ACSData)
 .enter()
 .append("text")
-//chartGroup.selectAll("text")
+.text(d => d.abbr)
 .attr("x", d => (xLinearScale(d[chosenXAxis]))-9)
 .attr("y", d => (yLinearScale(d.income))+5)
 .attr("fill", "white")
 .attr("font-size", "11px")
-.attr("font-weight", "bold")
-.text(d => d.abbr);
+.attr("font-weight", "bold");
 
 
 console.log(abbrGroup);
